@@ -1,0 +1,10 @@
+.sketchpadDiv{
+    display: inline-block;
+}
+
+
+#sketchpadContainer{
+    max-width: 960px;
+    line-height: 0px;
+    border: 1px solid;
+}
