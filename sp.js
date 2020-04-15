@@ -17,11 +17,23 @@ function divArrayBuild(){
         let createDiv = document.createElement(`div`);
         createDiv.setAttribute(`id`, gridName);
         createDiv.setAttribute(`class`, 'sketchpadDiv');
-        bgColor(createDiv, randomColor());
+        createDiv.style.background = 'black';
         sketchpadContainer.appendChild(createDiv);
         divsCreated++
     }
     console.log(`${divsCreated} div's have been created and appended`)
+}
+
+function divApplyAttributes(color){
+    for(let i = 0; i < divs.length; i++){
+        divs[i].lightLevel = 0;
+        divs[i].addEventListener('mouseover', function(){
+            bgColor(divs[i], randomColor())
+            divs[i].backgroundColor = divs[i].style.backgroundColor;
+            divs[i].lightLevel += 25.5;
+        });
+    }
+    return 'Attributes applied';
 }
 
 function bgColor(thisNode, color) {
@@ -35,7 +47,6 @@ function randomColor() {
     let Color = "rgb(" + x + "," + y + "," + z + ")";
     return Color;    
 }
-
 
 //Javascript to CSS Rule Append to make the responsive grid
 var addRule;
@@ -75,13 +86,15 @@ function createCssRule(selector, rule, doc) {
 
 //declairing variables and constants
 const sketchpadContainer = document.querySelector('div#sketchpadContainer');
-let gridX = 200;
+let divs = document.getElementsByClassName('sketchpadDiv');
+let gridX = 25;
 let gridArray = [];
 let gridCalc = 100 / gridX;
 
 //Actually doing the stuff
 divArrayCreate(gridX);
 divArrayBuild();
+divApplyAttributes();
 
 createCssRule(".sketchpadDiv", `width: ${gridCalc}%`);
 createCssRule(".sketchpadDiv", `padding-top: ${gridCalc}%`);
