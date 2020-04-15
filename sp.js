@@ -41,7 +41,6 @@ function divApplyAttributes(color){
 function clearSketchpad() { 
     let sketchpadContainer = document.querySelector("div#sketchpadContainer"); 
     
-    //e.firstElementChild can be used. 
     var divs = sketchpadContainer.lastElementChild;  
     while (divs) { 
         sketchpadContainer.removeChild(divs); 
@@ -99,21 +98,22 @@ function createCssRule(selector, rule, doc) {
 
 //Actually doing the stuff
 function gridCreate(){
+    let inputVal = document.getElementById("myInput");
+    gridX = inputVal.value;
+    let gridCalc = 100 / gridX;
     gridArray = [];
     clearSketchpad();
     divArrayCreate(gridX);
     divArrayBuild();
     divApplyAttributes();
+    createCssRule(".sketchpadDiv", `width: ${gridCalc}%`);
+    createCssRule(".sketchpadDiv", `padding-top: ${gridCalc}%`);
+    createCssRule(".sketchpadDiv", `border: 0px`);
 }
 
 //declairing variables and constants
 const sketchpadContainer = document.querySelector('div#sketchpadContainer');
-const gridInput = document.querySelector('input');
-let gridX = 25;
 let divs = document.getElementsByClassName('sketchpadDiv');
 let gridArray = [];
-let gridCalc = 100 / gridX;
 
-createCssRule(".sketchpadDiv", `width: ${gridCalc}%`);
-createCssRule(".sketchpadDiv", `padding-top: ${gridCalc}%`);
-createCssRule(".sketchpadDiv", `border: 0px`);
+
