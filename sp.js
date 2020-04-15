@@ -7,7 +7,9 @@ function divArrayCreate (gridX){
         divNumber++;
         divsNeeded--;
     }
-    return `${divNumber-1} div's in the staging array have been created.`
+    console.log(`${divNumber-1} div's in the staging array have been created.`)
+    divNumber = 1;
+    return;
 }
 
 function divArrayBuild(){
@@ -35,6 +37,17 @@ function divApplyAttributes(color){
     }
     return 'Attributes applied';
 }
+
+function clearSketchpad() { 
+    let sketchpadContainer = document.querySelector("div#sketchpadContainer"); 
+    
+    //e.firstElementChild can be used. 
+    var divs = sketchpadContainer.lastElementChild;  
+    while (divs) { 
+        sketchpadContainer.removeChild(divs); 
+        divs = sketchpadContainer.lastElementChild; 
+    } 
+} 
 
 function bgColor(thisNode, color) {
     thisNode.style.background = color;
@@ -84,17 +97,22 @@ function createCssRule(selector, rule, doc) {
     }
 };
 
+//Actually doing the stuff
+function gridCreate(){
+    gridArray = [];
+    clearSketchpad();
+    divArrayCreate(gridX);
+    divArrayBuild();
+    divApplyAttributes();
+}
+
 //declairing variables and constants
 const sketchpadContainer = document.querySelector('div#sketchpadContainer');
-let divs = document.getElementsByClassName('sketchpadDiv');
+const gridInput = document.querySelector('input');
 let gridX = 25;
+let divs = document.getElementsByClassName('sketchpadDiv');
 let gridArray = [];
 let gridCalc = 100 / gridX;
-
-//Actually doing the stuff
-divArrayCreate(gridX);
-divArrayBuild();
-divApplyAttributes();
 
 createCssRule(".sketchpadDiv", `width: ${gridCalc}%`);
 createCssRule(".sketchpadDiv", `padding-top: ${gridCalc}%`);
