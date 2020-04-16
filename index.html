@@ -4,15 +4,21 @@
         <meta charset="utf-8"/>
         <title>Javascript Based Sketchpad</title>
         <link rel="stylesheet" href="sp.css">
+        <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200&display=swap" rel="stylesheet">
     </head>
     <body>
-        <div id=`sketchpadUI`>        
-            <input type="text" placeholder="Define the grid size..." id="myInput">
-            <button type="button" onclick="gridCreate();">Build Grid</button>
+        <div id="viewport" class="viewport">
+            <div id=`sketchpadUI` class="sketchpadUI">
+                <div class="sketchpadTitle">Sketchpad: Javascript</div>        
+                <form class="formSketchpadUI">
+                    <input type="text" placeholder="Define the grid size..." onchange="gridPrep()" id="myInput" class="sketchpadUIFormInput">
+                    <button type="button" onclick="gridCreate();" class="sketchpadUIFormButton">Build Grid</button>                    
+                </form>
+            </div>
+            <div id="sketchpadContainer">
+            </div>
         </div>
-        <div id="sketchpadContainer">
-        </div>
-  </body>
+    </body>
   <script type="text/javascript" src="sp.js">
   </script>
 </html>

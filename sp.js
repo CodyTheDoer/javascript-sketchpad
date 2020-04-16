@@ -97,9 +97,12 @@ function createCssRule(selector, rule, doc) {
 };
 
 //Actually doing the stuff
-function gridCreate(){
+function gridPrep(){
     let inputVal = document.getElementById("myInput");
     gridX = inputVal.value;
+}
+
+function gridCreate(){
     let gridCalc = 100 / gridX;
     gridArray = [];
     clearSketchpad();
@@ -109,6 +112,26 @@ function gridCreate(){
     createCssRule(".sketchpadDiv", `width: ${gridCalc}%`);
     createCssRule(".sketchpadDiv", `padding-top: ${gridCalc}%`);
     createCssRule(".sketchpadDiv", `border: 0px`);
+}
+
+//javascript to stop enterKey
+var nav = window.Event ? true : false;
+if (nav) {
+   window.captureEvents(Event.KEYDOWN);
+   window.onkeydown = NetscapeEventHandler_KeyDown;
+} else {
+   document.onkeydown = MicrosoftEventHandler_KeyDown;
+}
+
+function NetscapeEventHandler_KeyDown(e) {
+  if (e.which == 13 && e.target.type != 'textarea' && e.target.type != 'submit') { return false; }
+  return true;
+}
+
+function MicrosoftEventHandler_KeyDown() {
+  if (event.keyCode == 13 && event.srcElement.type != 'textarea' && event.srcElement.type != 'submit')
+    return false;
+  return true;
 }
 
 //declairing variables and constants

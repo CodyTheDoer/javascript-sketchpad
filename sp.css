@@ -1,10 +1,70 @@
+/* CSS Mini Reset - http://www.vcarrer.com/2010/05/css-mini-reset.html*/
+
+html, body, div, form, fieldset, legend, label
+{
+ margin: 0;
+ padding: 0; 
+}
+
+table
+{
+ border-collapse: collapse;
+ border-spacing: 0;
+}
+
+th, td
+{
+ text-align: left;
+ vertical-align: top;
+}
+
+h1, h2, h3, h4, h5, h6, th, td, caption { font-weight:normal; }
+
+img { border: 0; }
+
+/*CSS: Code*/
+html{
+    background: rgb(33, 10, 10);
+}
+
+.viewport{
+    background: linear-gradient(180deg, rgb(134, 17, 17) 0%, rgb(33, 10, 10) 100%);
+}
+
+.sketchpadTitle{
+    color: rgb(255, 255, 255);
+    font-family: 'Oswald', sans-serif;
+    font-size: x-large;
+}
+
 .sketchpadDiv{
     display: inline-block;
 }
 
+.sketchpadUI{
+    height: 75px;
+    padding-top: 10px;
+    margin: auto auto 15px; auto;
+    background: linear-gradient(180deg, rgba(142,35,35,0) 0%, rgb(169, 37, 37) 100%);
+    text-align: center;
+}
+
+.sketchpadUIFormInput{
+    width: 120px;
+    font-family: 'Oswald', sans-serif;
+    font-size: medium;
+}
+
+.sketchpadUIFormButton{
+    width: 120px;
+    font-family: 'Oswald', sans-serif;
+    font-size: medium;
+}
 
 #sketchpadContainer{
-    max-width: 900px;
+    max-width: 875px;
     line-height: 0px;
-    border: 1px solid;
+    border: 0px solid;
+    margin: auto;
+    padding-bottom: 25px;
 }
