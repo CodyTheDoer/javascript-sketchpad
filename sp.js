@@ -19,14 +19,14 @@ function divArrayBuild(){
         let createDiv = document.createElement(`div`);
         createDiv.setAttribute(`id`, gridName);
         createDiv.setAttribute(`class`, 'sketchpadDiv');
-        createDiv.style.background = 'black';
+        createDiv.style.background = randomColorGrayscaleFullSpectrum();
         sketchpadContainer.appendChild(createDiv);
         divsCreated++
     }
     console.log(`${divsCreated} div's have been created and appended`)
 }
 
-function divApplyAttributes(color){
+function divApplyAttributes(){
     for(let i = 0; i < divs.length; i++){
         divs[i].lightLevel = 0;
         divs[i].addEventListener('mouseover', function(){
@@ -58,6 +58,12 @@ function randomColor() {
     let z = Math.floor(Math.random() * 256);
     let Color = "rgb(" + x + "," + y + "," + z + ")";
     return Color;    
+}
+
+function randomColorGrayscaleFullSpectrum() {
+    let gray = Math.floor(Math.random() * 256);
+    let grayscaleFullSpectrum = "rgb(" + gray + "," + gray + "," + gray + ")";
+    return grayscaleFullSpectrum;    
 }
 
 //Javascript to CSS Rule Append to make the responsive grid

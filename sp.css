@@ -39,6 +39,11 @@ html{
 
 .sketchpadDiv{
     display: inline-block;
+    border-radius: 20%;
+}
+
+.sketchpadDiv:hover{
+    transform: scale(1.25) rotate(45deg)
 }
 
 .sketchpadUI{
